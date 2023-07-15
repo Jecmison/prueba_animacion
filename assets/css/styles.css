@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 8fr 2fr 1fr;
+    grid-template-areas:
+        "header"
+        "historia"
+        "productos"
+        "paginacion"
+        "footer";
+}
+
+section.barra {
+    flex-direction: column;
+    grid-area: header;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background: #daf577;
+    color: #021016;
+}
+
+section.barra header h1 {
+    display: flex;
+    font-size: 28px;
+    font-weight: 350;
+    gap: 18px;
+}
+
+section.barra nav {
+    font-size: 20px;
+}
+
+section.barra nav .menu ul {
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    font-size: 15px;
+    font-weight: 350;
+    gap: 18px;
+}
+
+section.barra nav .menu ul a {
+    color: #010a0f;
+    text-decoration: none;
+}
+
+aside.historia {
+    grid-area: historia;
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 5px;
+    background: #90ce77;
+    padding: 10px 13px 10px 13px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(77, 77, 77);
+    font-size: 12px;
+}
+
+main.productos {
+    grid-area: productos;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    overflow-y: scroll;
+    gap: 10px;
+    width: 100%;
+    padding: 28px;
+}
+
+main.productos article.fruit-card.none-card {
+    display: none;
+}
+
+main.productos article.fruit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    width: 85%;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.123) 0 0 15px;
+    border-radius: 5px;
+}
+
+main.productos article.fruit-card img.fruit1 {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+main.productos article.fruit-card h2 {
+    font-size: 25px;
+    font-weight: 450;
+}
+
+main.productos article.fruit-card button {
+    background: #eff306;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 40%;
+    height: 40px;
+    cursor: pointer;
+    color: rgb(126, 108, 158);
+    animation-name: cambiocolor;
+    animation-duration: 6000ms;
+    animation-delay: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: forwards;
+}
+
+nav.paginacion {
+    grid-area: paginacion;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #90ce77;
+}
+
+nav.paginacion ul {
+    display: flex;
+    list-style: none;
+}
+
+nav.paginacion a {
+    width: auto;
+    height: auto;
+    padding: 3px 10px;
+    text-decoration: none;
+    color: #2249b6;
+    border-top: 1px solid rgb(89, 118, 172);
+    border-right: 1px solid rgb(89, 118, 172);
+    border-bottom: 1px solid rgb(89, 118, 172);
+    border-left: 1px solid rgb(89, 118, 172)
+}
+
+nav.paginacion .left {
+    border-radius: 5px 0 0 5px;
+}
+
+nav.paginacion .right {
+    border-radius: 0 5px 5px 0;
+}
+
+footer.redes {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 5px 0;
+    color: #e8e9eb;
+    background: rgb(182, 136, 51);
+}
+
+footer.redes .ig-face-what {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        grid-template-columns: 2fr 10fr;
+        grid-template-rows: 1fr 10fr 1fr;
+        grid-template-areas:
+            "header historia"
+            "header productos"
+            "footer paginacion";
+    }
+
+    section.barra {
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-width: 200px;
+        gap: 40px;
+    }
+
+    aside.historia {
+        gap: 10px;
+        font-size: 16px;
+    }
+
+    section.barra nav .menu ul {
+        flex-direction: column;
+    }
+
+    main.productos {
+        flex-wrap: wrap;
+        gap: 30px;
+        height: 100%;
+    }
+
+    main.productos article.fruit-card.none-card {
+        display: flex;
+    }
+
+    main.productos article.fruit-card {
+        max-width: 300px;
+    }
+
+    main.productos article.fruit-card img.cover-card {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
+
+    nav.paginacion {
+        display: flex;
+        width: 100%;
+    }
+}
+
+@keyframes cambiocolor {
+    0% {
+        background-color: rgb(255, 153, 0);
+        width: 120px;
+        color: black;
+    }
+
+    50% {
+        background-color: rgb(59, 145, 37);
+        width: 80px;
+        border-radius: 20%;
+        color: whitesmoke;
+    }
+
+    100% {
+        background-color: rgb(75, 75, 128);
+        width: 80px;
+        height: 40px;
+        color: white;
+    }
+}
